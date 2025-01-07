@@ -17,6 +17,25 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      animation: {
+        "bounce-slow": "bounceAround 5s ease-in-out infinite",
+        "move-slow": "moveAround 6s ease-in-out infinite",
+        "rotate-slow": "rotateAround 7s ease-in-out infinite",
+      },
+      keyframes: {
+        bounceAround: {
+          "0%, 100%": { transform: "translateY(0) translateX(0)" },
+          "50%": { transform: "translateY(-50px) translateX(50px)" },
+        },
+        moveAround: {
+          "0%, 100%": { transform: "translateY(0) translateX(0)" },
+          "50%": { transform: "translateY(50px) translateX(-50px)" },
+        },
+        rotateAround: {
+          "0%, 100%": { transform: "translateY(0) translateX(0)" },
+          "50%": { transform: "translateY(-50px) translateX(-50px)" },
+        },
+      },
     },
   },
   plugins: [],
