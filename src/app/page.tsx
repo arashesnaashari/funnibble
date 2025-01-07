@@ -1,3 +1,4 @@
+import Image from "next/image";
 import FormComponent from "./components/Form";
 export default function Home() {
   return (
@@ -6,7 +7,13 @@ export default function Home() {
       <header className=" 2xl:w-4/5 container mx-auto px-4 py-6 flex justify-between items-center">
         <div className="z-10 flex items-center space-x-4">
           <div className="bg-green-400 text-white rounded-full h-10 w-10 flex items-center justify-center font-bold text-lg">
-            <img src="/logo.png" className="rounded-lg" />
+            <Image
+              width={200}
+              height={200}
+              src="/logo.png"
+              className="rounded-lg"
+              alt="logo"
+            />
           </div>
           <nav className="hidden sm:flex space-x-6 text-gray-700 font-medium">
             <a href="#about" className="hover:text-black">

@@ -25,7 +25,9 @@ export default function Home() {
       } else {
         setMessage(data.error || "Something went wrong. Please try again.");
       }
-    } catch (err) {
+    } catch (err: any) {
+      console.log(err);
+
       setMessage("An error occurred. Please try again.");
     }
   };
