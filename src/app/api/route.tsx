@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
-
+import type SMTPTransport from "nodemailer/lib/smtp-transport";
 export async function POST(req: Request) {
   const body = await req.json();
   const { email } = body;
@@ -15,15 +15,16 @@ export async function POST(req: Request) {
 
   try {
     // 1. Send Thank-You Email to the User
-    const transporter = nodemailer.createTransport({
+    const smtpConfig: SMTPTransport.Options = {
       host: "smtp.c1.liara.email",
-      port: "587",
+      port: 587,
       secure: false,
       auth: {
         user: "elegant_hermann_vgm9in", // Your email address
         pass: "609a37df-55b3-4180-8137-4406e7223b24", // Your email password or app-specific password
       },
-    }); //arash.esnaaashari@gmail.com
+    };
+    const transporter = nodemailer.createTransport(smtpConfig);
     console.log("auth");
 
     await transporter.sendMail({
